@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body><div class="contenedor"></div>    
+
+</body>
+
+    
+    <style>
+        body{
+            margin: 0px;
+        }
+        .contenedor{
+            width: 100%;
+            height: 10vh;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+        .contenido{
+            background-color: rgb(248, 4, 199);
+            border-radius: 20px;
+            filter: grayscale(100%);
+    
+        }
+        .contenido:hover{
+            filter: grayscale(0%);
+            transition:1.05s;
+            scale: 1.02;
+        }
+        #primero{
+            grid-column: 1/2;
+            grid-row: 1/3;
+        
+        }
+        #tercero{
+            grid-column: 2/3;
+            grid-row: 2/4;
+       
+        }
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+<head>
+<body>
+<div class="contenedor">
+<div class="contenido" id="primero"> <img src="./Unknown-18.jpg" alt=""></div> 
+<div class="contenido" id="segundo"> <img src="./ .jpg" alt=""></div> 
+<div class="contenido" id="tercero"> <img src="./ -2.jpg" alt=""></div> 
+<div class="contenido" id="cuarto"> <img src="./ -3.jpg" alt=""></div> 
+<div class="contenido" id="quinto"> <img src="./Unknown-16.jpg" alt=""></div> 
+<div class="contenido" id="sexto"> <img src="./Unknown-17.jpg" alt=""></div> 
+<div class="contenido" id="septimo"> <img src="./Unknown-15.jpg" alt=""></div>
+</div>
+</body>
+</head>
+</html>
