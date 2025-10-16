@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div Interactivo</title>
+  <style>
+    #cuadro {
+      width: 150px;
+      height: 150px;
+      background-color: rgb(100, 150, 200);
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="cuadro"></div>
+
+  <script>
+    const cuadro = document.getElementById("cuadro");
+    let mouseDentro = false;
+
+    cuadro.addEventListener("mouseover", () => {
+      mouseDentro = true;
+    });
+
+    cuadro.addEventListener("mouseout", () => {
+      mouseDentro = false;
+    });
+
+    cuadro.addEventListener("click", () => {
+      if (mouseDentro) {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        cuadro.style.backgroundColor = `rgb(${r},${g},${b})`;
+      }
+    });
+  </script>
+</body>
+</html>
