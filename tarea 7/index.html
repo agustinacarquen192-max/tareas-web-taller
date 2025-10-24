@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estela del mouse simple</title>
+  <style>
+    html,body{margin:0;height:100%;background:#000;overflow:hidden;cursor:crosshair;}
+    canvas{display:block;}
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    let trail = [];
+
+    window.addEventListener('mousemove', (e) => {
+      trail.push({x: e.clientX, y: e.clientY, alpha: 1});
+      if(trail.length > 50) trail.shift();
+    });
+
+    function draw(){
+      ctx.fillStyle = 'rgba(0,0,0,0.1)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      for(let i=0; i<trail.length; i++){
+        const t = trail[i];
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, 8, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${t.alpha})`;
+        ctx.fill();
+        t.alpha -= 0.02;
+      }
+      trail = trail.filter(p => p.alpha > 0);
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
